@@ -4,4 +4,6 @@
 
 <p>Current count: <strong>{{ currentCount }}</strong></p>
 
-<button (click)="incrementCounter()">Increment</button>
+<button mat-raised-button class="myButton" (click)="incrementCounter()" [@hoverAnimation]>Increment</button>
+
+<mat-slide-toggle [(ngModel)]="isEnabled">Toggle</mat-slide-toggle>

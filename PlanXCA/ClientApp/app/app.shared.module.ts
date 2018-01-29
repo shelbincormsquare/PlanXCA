@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,6 +24,11 @@ import { CounterComponent } from './components/counter/counter.component';
         CommonModule,
         HttpModule,
         FormsModule,
+        MatButtonModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
