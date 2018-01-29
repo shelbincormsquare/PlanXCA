@@ -11,6 +11,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { ProjectFormComponent } from './components/project-form/project-form.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModu
         MatSelectModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'projects/new', component: ProjectFormComponent },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
