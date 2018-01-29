@@ -2,11 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PlanXCA.Core;
+using PlanXCA.Core.Repositories;
+using PlanXCA.Persistence;
+using PlanXCA.Presistence;
+using PlanXCA.Presistence.Repositories;
 
 namespace PlanXCA
 {
@@ -22,7 +29,11 @@ namespace PlanXCA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddAutoMapper ();
+            services.AddDbContext<PlanXCADbContext> (options => options.UseSqlServer (Configuration.GetConnectionString ("Default")));
+            services.AddMvc ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
