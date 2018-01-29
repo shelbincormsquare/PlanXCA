@@ -8,6 +8,7 @@ namespace PlanXCA.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            AddClass obj = new AddClass();
         }
     }
 }
