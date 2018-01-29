@@ -1,4 +1,6 @@
 using AutoMapper;
+using PlanXCA.Core.Models;
+using PlanXCA.Core.Resources;
 
 namespace PlanXCA.Mapping
 {

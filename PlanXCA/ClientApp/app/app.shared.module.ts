@@ -12,6 +12,7 @@ import { CounterComponent } from './components/counter/counter.component';
 
 import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { ProjectService } from './services/project.service';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { ProjectFormComponent } from './components/project-form/project-form.com
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        ProjectFormComponent 
     ],
     imports: [
         CommonModule,
@@ -38,6 +40,9 @@ import { ProjectFormComponent } from './components/project-form/project-form.com
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ],
+    providers: [
+        ProjectService
     ]
 })
 export class AppModuleShared {

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using PlanXCA.Core.Models;
 using PlanXCA.Core.Repositories;
 using PlanXCA.Persistence;
