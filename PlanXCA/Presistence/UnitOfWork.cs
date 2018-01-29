@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using PlanXCA.Core;
 using PlanXCA.Persistence;
 
-namespace PlanXCA.Presistence
+namespace PlanXCA.Persistence
 {
     public class UnitOfWork:IUnitOfWork
     {

@@ -5,7 +5,7 @@ using PlanXCA.Core.Models;
 using PlanXCA.Core.Repositories;
 using PlanXCA.Persistence;
 
-namespace PlanXCA.Presistence.Repositories
+namespace PlanXCA.Persistence.Repositories
 {
     public class ProjectRepository:IProjectRepository
     {

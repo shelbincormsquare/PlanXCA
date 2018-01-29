@@ -12,8 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PlanXCA.Core;
 using PlanXCA.Core.Repositories;
 using PlanXCA.Persistence;
-using PlanXCA.Presistence;
-using PlanXCA.Presistence.Repositories;
+using PlanXCA.Persistence.Repositories;
 
 namespace PlanXCA
 {
