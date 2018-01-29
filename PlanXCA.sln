@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanXCA", "PlanXCA\PlanXCA.csproj", "{BC624B8D-1E50-4D61-87D5-5E439B389E14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanXCA.Tests", "PlanXCA.Tests\PlanXCA.Tests.csproj", "{208EB4C5-F39A-4B48-9CD6-A8CF9D3B8D9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC624B8D-1E50-4D61-87D5-5E439B389E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC624B8D-1E50-4D61-87D5-5E439B389E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC624B8D-1E50-4D61-87D5-5E439B389E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC624B8D-1E50-4D61-87D5-5E439B389E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{208EB4C5-F39A-4B48-9CD6-A8CF9D3B8D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{208EB4C5-F39A-4B48-9CD6-A8CF9D3B8D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{208EB4C5-F39A-4B48-9CD6-A8CF9D3B8D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{208EB4C5-F39A-4B48-9CD6-A8CF9D3B8D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7777452-C654-4E76-8B0B-F7FDC4A56DF6}
+	EndGlobalSection
+EndGlobal
