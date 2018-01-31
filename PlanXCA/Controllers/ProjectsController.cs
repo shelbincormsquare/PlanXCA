@@ -9,83 +9,90 @@ using PlanXCA.Core.Resources;
 
 namespace PlanXCA.Controllers
 {
-    [Route ("/api/projects")]
-    public class ProjectsController : Controller {
+    [Route("/api/projects")]
+    public class ProjectsController : Controller
+    {
         private readonly IMapper mapper;
         private readonly IProjectRepository repository;
         private readonly IUnitOfWork unitOfWork;
-        public ProjectsController (IMapper mapper, IProjectRepository repository, IUnitOfWork unitOfWork) {
+        public ProjectsController(IMapper mapper, IProjectRepository repository, IUnitOfWork unitOfWork)
+        {
             this.unitOfWork = unitOfWork;
             this.repository = repository;
             this.mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<List<ProjectResource>> GetProjects () {
-            var projects = await repository.GetProjects ();
-            return mapper.Map<List<Project>, List<ProjectResource>> (projects);
+        public async Task<List<ProjectResource>> GetProjects()
+        {
+            var projects = await repository.GetProjects();
+            return mapper.Map<List<Project>, List<ProjectResource>>(projects);
         }
 
-        [HttpGet ("{id}")]
-        public async Task<IActionResult> GetProject (int id) {
-            var project = await repository.GetProject (id);
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProject(int id)
+        {
+            var project = await repository.GetProject(id);
 
             if (project == null)
-                return NotFound ();
+                return NotFound();
 
-            var projectResource = mapper.Map<Project, ProjectResource> (project);
+            var projectResource = mapper.Map<Project, ProjectResource>(project);
 
-            return Ok (projectResource);
+            return Ok(projectResource);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProject ([FromBody] ProjectResource projectResource) {
+        public async Task<IActionResult> CreateProject([FromBody] ProjectResource projectResource)
+        {
             if (!ModelState.IsValid)
-                return BadRequest (ModelState);
+                return BadRequest(ModelState);
 
-            var project = mapper.Map<ProjectResource, Project> (projectResource);
+            var project = mapper.Map<ProjectResource, Project>(projectResource);
 
-            repository.Add (project);
-            await unitOfWork.CompleteAsync ();
+            repository.Add(project);
+            await unitOfWork.CompleteAsync();
 
-            project = await repository.GetProject (project.Id);
+            project = await repository.GetProject(project.Id);
 
-            var result = mapper.Map<Project, ProjectResource> (project);
+            var result = mapper.Map<Project, ProjectResource>(project);
 
-            return Ok (result);
+            return Ok(result);
         }
 
-        [HttpPut ("{id}")]
-        public async Task<IActionResult> UpdateProject (int id, [FromBody] ProjectResource projectResource) {
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProject(int id, [FromBody] ProjectResource projectResource)
+        {
             if (!ModelState.IsValid)
-                return BadRequest (ModelState);
+                return BadRequest(ModelState);
 
-            var project = await repository.GetProject (id);
+            var project = await repository.GetProject(id);
 
             if (project == null)
-                return NotFound ();
+                return NotFound();
 
-            mapper.Map<ProjectResource, Project> (projectResource, project);
+            mapper.Map<ProjectResource, Project>(projectResource, project);
 
-            await unitOfWork.CompleteAsync ();
+            await unitOfWork.CompleteAsync();
 
-            project = await repository.GetProject (project.Id);
-            var result = mapper.Map<Project, ProjectResource> (project);
+            project = await repository.GetProject(project.Id);
+            var result = mapper.Map<Project, ProjectResource>(project);
 
-            return Ok (result);
+            return Ok(result);
         }
 
-        [HttpDelete ("{id}")]
-        public async Task<IActionResult> DeleteProject (int id) {
-            var project = await repository.GetProject (id);
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProject(int id)
+        {
+            var project = await repository.GetProject(id);
 
             if (project == null)
-                return NotFound ();
+                return NotFound();
 
-            repository.Remove (project);
-            await unitOfWork.CompleteAsync ();
+            repository.Remove(project);
+            await unitOfWork.CompleteAsync();
 
-            return Ok (id);
+            return Ok(id);
         }
     }
 }
