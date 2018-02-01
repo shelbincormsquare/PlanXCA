@@ -10,9 +10,11 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
-import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, 
+    MatSelectModule, MatTableModule } from '@angular/material';
 import { ProjectFormComponent } from './components/project-form/project-form.component';
 import { ProjectService } from './services/project.service';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +23,8 @@ import { ProjectService } from './services/project.service';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        ProjectFormComponent 
+        ProjectFormComponent,
+        ProjectListComponent 
     ],
     imports: [
         CommonModule,
@@ -32,9 +35,11 @@ import { ProjectService } from './services/project.service';
         MatInputModule,
         MatFormFieldModule,
         MatSelectModule,
+        MatTableModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'projects/new', component: ProjectFormComponent },
+            { path: 'projects/list', component: ProjectListComponent },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
