@@ -1,6 +1,6 @@
+import { Project } from './../../../models/project';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
-import { Project } from '../../../models/project';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProjectListComponent implements OnInit {
 
   private projects: Project[] = [];
   dataSource: any;
-  displayedColumns = ['name', 'name', 'name', 'name'];
+  displayedColumns = ['name', 'name', 'name', 'customColumn1'];
 
   constructor(private projectService: ProjectService) { }
 
@@ -23,6 +23,11 @@ export class ProjectListComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Project>(this.projects);
       });
   }
-
+  edit(id: number) {
+    this.projectService.getProject(id)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 
 }

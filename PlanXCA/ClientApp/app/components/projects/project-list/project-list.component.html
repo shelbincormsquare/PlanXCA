@@ -19,16 +19,32 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="weight">
       <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let project"> {{project.name}} </mat-cell>
+      <mat-cell *matCellDef="let project">
+        <!-- <button (click)="edit()">Edit</button> -->
+        {{project.id}}
+      </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let project"> {{project.name}} </mat-cell>
+    <ng-container matColumnDef="customColumn1">
+      <mat-header-cell *matHeaderCellDef> Custom Title</mat-header-cell>
+      <mat-cell *matCellDef="let project">
+        <a [routerLink]="['/project', project.id]">
+          <i class="material-icons">mode_edit</i>
+        </a>
+        <button mat-button (click)="edit(project.id)">Click me!</button>
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large waves-effect waves-light green"
+       routerLink="/projects/new">
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+  

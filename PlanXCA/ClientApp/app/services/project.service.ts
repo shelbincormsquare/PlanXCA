@@ -12,10 +12,10 @@ export class ProjectService {
     return this.http.get(this.projectsEndpoint).map(res => res.json());
   }
 
-  // getProject(id) {
-  //   return this.http.get(this.projectsEndpoint + '/' + id)
-  //     .map(res => res.json());
-  // }
+  getProject(id:number) {
+    return this.http.get(this.projectsEndpoint + '/' + id)
+      .map(res => res.json());
+  }
 
   // create(project) {
   //   return this.http.post(this.projectsEndpoint, project)
