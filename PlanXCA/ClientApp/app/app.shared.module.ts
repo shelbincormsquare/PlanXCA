@@ -12,9 +12,9 @@ import { CounterComponent } from './components/counter/counter.component';
 
 import { MatButtonModule, MatSlideToggleModule, MatInputModule, MatFormFieldModule, 
     MatSelectModule, MatTableModule } from '@angular/material';
-import { ProjectFormComponent } from './components/project-form/project-form.component';
 import { ProjectService } from './services/project.service';
-import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectFormComponent } from './components/projects/project-form/project-form.component';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 
 @NgModule({
     declarations: [
