@@ -29,9 +29,10 @@
     <ng-container matColumnDef="customColumn1">
       <mat-header-cell *matHeaderCellDef> Custom Title</mat-header-cell>
       <mat-cell *matCellDef="let project">
-        <a [routerLink]="['/project', project.id]">
+        <a [routerLink]="['/projects', project.id]">
           <i class="material-icons">mode_edit</i>
         </a>
+        <!-- <button mat-button  [routerLink]="['/project', project.id]">Details</button> -->
         <button mat-button (click)="edit(project.id)">Click me!</button>
       </mat-cell>
     </ng-container>

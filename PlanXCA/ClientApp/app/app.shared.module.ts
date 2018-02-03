@@ -40,6 +40,7 @@ import { ProjectListComponent } from './components/projects/project-list/project
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'projects/new', component: ProjectFormComponent },
             { path: 'projects/list', component: ProjectListComponent },
+            { path: 'projects/:id', component: ProjectFormComponent},
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
