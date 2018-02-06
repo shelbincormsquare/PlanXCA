@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
-import {  Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from '../../../models/project';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-project-form',
@@ -9,16 +10,16 @@ import { Project } from '../../../models/project';
   styleUrls: ['./project-form.component.css']
 })
 export class ProjectFormComponent implements OnInit {
-  private route: ActivatedRoute;
-  private router: Router;
   title: string;
   project: Project;
-  constructor(private projectService: ProjectService) { }
+  form: FormGroup;
+  constructor(private router: Router, private route: ActivatedRoute, private projectService: ProjectService) {
+    this.project = new Project();
+  }
 
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
-console.log(id);
       this.title = id ? 'Edit User' : 'New User';
 
       if (!id)
@@ -26,13 +27,20 @@ console.log(id);
 
       this.projectService.getProject(id)
         .subscribe(
-          project => this.project = project,
-          response => {
-            if (response.status == 404) {
-              //this.router.navigate(['NotFound']);
-            }
-          });
+        project => this.project = project,
+        response => {
+          if (response.status == 404) {
+            this.router.navigate(['NotFound']);
+          }
+        });
     });
+  }
+
+  save() {
+    // var result,
+    //   userValue = this.form.value;
+
+console.log("userValue");
   }
 
 }

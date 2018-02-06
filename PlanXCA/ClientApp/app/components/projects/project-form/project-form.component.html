@@ -1,3 +1,24 @@
 <h5>{{ title }}</h5>
 
+<form (ngSubmit)="save()">
+    <mat-input-container>
+        <input matInput [(ngModel)]="project.name" name="name" placeholder="Project Name" type="text">
+    </mat-input-container>
 
+    <mat-input-container>
+        <input matInput [(ngModel)]="project.id" name="id" placeholder="Project ID" type="text">
+    </mat-input-container>
+
+
+    <button mat-button>Submit</button>
+</form>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+  </form>
