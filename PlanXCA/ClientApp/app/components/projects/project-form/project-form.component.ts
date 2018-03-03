@@ -3,6 +3,7 @@ import { ProjectService } from '../../../services/project.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from '../../../models/project';
 import { FormGroup } from '@angular/forms';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-project-form',
@@ -27,20 +28,32 @@ export class ProjectFormComponent implements OnInit {
 
       this.projectService.getProject(id)
         .subscribe(
-        project => this.project = project,
-        response => {
-          if (response.status == 404) {
-            this.router.navigate(['NotFound']);
-          }
-        });
+          project => this.project = project,
+          response => {
+            if (response.status == 404) {
+              this.router.navigate(['NotFound']);
+            }
+          });
     });
+  }
+
+  download() {
+
+    var doc = new jsPDF();
+    doc.text(20, 20, 'Hello world!');
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    doc.addPage();
+    doc.text(20, 20, 'Do you like that?');
+
+    // Save the PDF
+    doc.save('Test.pdf');
   }
 
   save() {
     // var result,
     //   userValue = this.form.value;
 
-console.log("userValue");
+    console.log("userValue");
   }
 
 }
