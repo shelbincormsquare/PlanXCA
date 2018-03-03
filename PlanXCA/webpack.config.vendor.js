@@ -16,7 +16,7 @@ const treeShakableModules = [
     'zone.js',
 ];
 const nonTreeShakableModules = [
-    "@angular/material/prebuilt-themes/purple-green.css",
+    "@angular/material/prebuilt-themes/indigo-pink.css",
     'bootstrap',
     'bootstrap/dist/css/bootstrap.css',
     'es6-promise',
